@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Offer.destroy_all
+User.destroy_all
+Category.destroy_all
+
+categories = ["Primeira Série", "Segunda Série", "Terceira Série", "Quarta Série", "Quinta Série", "Sexta Série", "Camiseta", "Shorts", "Moletom"]
+categories.each do |categorie|
+  Category.create(name: categorie)
+end
+
+puts "Creating Users...."
+User.create!(email: "contato@banana.com", password: "123456" )
+User.create!(email: "contato2@banana.com", password: "1234567" )
+User.create!(email: "contato3@banana.com", password: "1234568" )
+User.create!(email: "contato4@banana.com", password: "1234569" )
+puts "You have #{User.count} users"
+
+puts "Create offers"
+Offer.create(name: "Iniciando com ciências", description: "Livro sobre zoologia", price: "11", category: Category.all.sample, user: User.first )
+Offer.create(name: "Shorts", description: "description2", price: "12", category:Category.all.sample, user: User.first )
+Offer.create(name: "Mundo da Matemática", description: "description3", price: "13", category:Category.all.sample, user: User.first )
