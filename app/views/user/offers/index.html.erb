@@ -1,0 +1,12 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1> <%= current_user.email %></h1>
+
+  </div>
+</div>
+
+
+ <% current_user.offers.each do |offer| %>
+  <h2> <%= offer.name %> </h2>
+  <% end  %>
+

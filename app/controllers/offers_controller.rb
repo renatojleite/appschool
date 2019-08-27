@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
 
-  before_action :set_offer, only: [:show, :update]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
@@ -23,7 +23,7 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     if @offer.save
-      redirect_to offers_path(@offer)
+      redirect_to user_offers_path
     else
       render 'new'
     end
@@ -53,6 +53,11 @@ class OffersController < ApplicationController
     #     format.json { render json: @offer.errors, status: :unprocessable_entity }
     #   end
     # end
+  end
+
+  def destroy
+    @offer.destroy
+    redirect_to offers_path
   end
 
   private
