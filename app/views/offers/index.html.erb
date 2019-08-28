@@ -1,25 +1,57 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <%= link_to 'Create Offer', new_offer_path, class: "btn btn-primary btn-lg" %>
+  <div class="container text-center my-5">
+    <div>
+      <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+      <p>Change your life and learn to code at one of our campuses around the world.</p>
+
+      <span>
+        <%= link_to 'Cadastrar', new_offer_path, class: "btn btn-primary btn-lg mx-4 btn-home" %>
+        <%= link_to 'Explorar', '#', class: "btn btn-success btn-lg btn-home" %>
+      </span>
+    </div>
+
+      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Escola Santa Cruz" />
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i> Buscar
+          </button>
+        </div>
+      </form>
+
   </div>
+</div>
+
+<div class="container text-center my-5 ">
+  <h3>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h3>
+  <p>Change your life and learn to code at one of our campuses around the world.</p>
+
 </div>
 
 
 
-<%= cl_image_tag("https://res.cloudinary.com/renatojleite/image/upload/v1567009615/wtqg9yu6ick4e3yqcxag.jpg",
+<%#= cl_image_tag("https://res.cloudinary.com/renatojleite/image/upload/v1567009615/wtqg9yu6ick4e3yqcxag.jpg",
       width: 400, height: 300, crop: :fill) %>
 
 <div class="container cards my-4">
  <% @offers.each do |offer| %>
   <div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-
-        <%= link_to offer.name, offer_path(offer) %>
-
+      <div>
+        <div class="card-trip">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-trip-infos">
+            <div>
+              <h2> <%= link_to offer.name, offer_path(offer) %> </h2>
+            </div>
+            <h2 class="card-trip-pricing">R$ <%= offer.price %></h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
       </div>
   </div>
 <%end %>
 </div>
+
+
+
 
