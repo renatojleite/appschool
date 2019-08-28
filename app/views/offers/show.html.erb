@@ -1,26 +1,29 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('bookyay.jpg') %>);">
   <div class="container">
 
   </div>
 </div>
 
-<div class="container">
+<div class="container my-5">
 
-  <h1><%= link_to @offer.name, offer_path %></h1>
-  <p> <%=  @offer.price %></p>
+  <h1><%= @offer.name %></h1>
+  <img class="card-img-top mx-1" src="<%= image_path('book1.jpeg') %>" alt="Card image cap" style="width: 18rem; border-radius: 3px;">
+  <img class="card-img-top mx-1" src="<%= image_path('book2.jpeg') %>" alt="Card image cap" style="width: 18rem; border-radius: 3px;">
+  <img class="card-img-top mx-1" src="<%= image_path('book1.jpeg') %>" alt="Card image cap" style="width: 18rem; border-radius: 3px;">
+  <h3 class="py-2"> <%=  @offer.price %>,00R$</h3>
   <p> <%=  @offer.description %></p>
 
   <% if @offer.deals.where(user: current_user).count.positive? %>
-    <p>Vendido!</p>
+    <h3 class="text-success">Vendido!</h3>
   <% else %>
     <%= simple_form_for [ @offer, @deal ]  do |f| %>
-      <%= f.submit "Comprar", class: "btn btn-primary btn-lg" %>
+      <%= f.submit "Comprar", class: "btn btn-primary btn-lg my-3" %>
+    <% if @offer.user == current_user %>
+      <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
+    <% end %>
     <% end %>
   <% end %>
-
-  <% if @offer.user == current_user %>
-    <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
-    <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
-  <% end %>
-
+  <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
 </div>
+
+
