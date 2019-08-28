@@ -10,11 +10,17 @@
   <p> <%=  @offer.price %></p>
   <p> <%=  @offer.description %></p>
 
+  <% if @offer.deals.where(user: current_user).count.positive? %>
+    <p>Vendido!</p>
+  <% else %>
+    <%= simple_form_for [ @offer, @deal ]  do |f| %>
+      <%= f.submit "Comprar", class: "btn btn-primary btn-lg" %>
+    <% end %>
+  <% end %>
+
   <% if @offer.user == current_user %>
-  <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
-
-  <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
-
+    <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
+    <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
   <% end %>
 
 </div>

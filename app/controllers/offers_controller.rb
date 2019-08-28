@@ -14,6 +14,7 @@ class OffersController < ApplicationController
   def show
     #set_offer
     #@offer = Offer.find(params[:id])
+    @deal = Deal.new
   end
 
   def edit
