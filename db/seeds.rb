@@ -8,10 +8,10 @@ categories.each do |categorie|
 end
 
 puts "Creating Users...."
-User.create!(email: "contato@banana.com", password: "123456" )
-User.create!(email: "contato2@banana.com", password: "1234567" )
-User.create!(email: "contato3@banana.com", password: "1234568" )
-User.create!(email: "contato4@banana.com", password: "1234569" )
+User.create!(email: "contato1@banana.com", password: "123456" )
+User.create!(email: "contato2@banana.com", password: "123456" )
+User.create!(email: "contato3@banana.com", password: "123456" )
+User.create!(email: "contato4@banana.com", password: "123456" )
 puts "You have #{User.count} users"
 
 puts "Create offers"
