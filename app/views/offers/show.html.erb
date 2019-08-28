@@ -20,10 +20,10 @@
       <%= f.submit "Comprar", class: "btn btn-primary btn-lg my-3" %>
     <% if @offer.user == current_user %>
       <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
+      <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
     <% end %>
     <% end %>
   <% end %>
-  <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
 </div>
 
 
