@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('bookyay.jpg') %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path('bookyay.jpg') %>');">
   <div class="container">
 
   </div>
@@ -7,9 +7,9 @@
 <div class="container my-5">
 
   <h1><%= @offer.name %></h1>
-  <img class="card-img-top mx-1" src="<%= image_path('book1.jpeg') %>" alt="Card image cap" style="width: 18rem; border-radius: 3px;">
-  <img class="card-img-top mx-1" src="<%= image_path('book2.jpeg') %>" alt="Card image cap" style="width: 18rem; border-radius: 3px;">
-  <img class="card-img-top mx-1" src="<%= image_path('book1.jpeg') %>" alt="Card image cap" style="width: 18rem; border-radius: 3px;">
+  <%= image_tag('book1.jpeg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
+  <%= image_tag('book2.jpeg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
+  <%= image_tag('book1.jpeg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
   <h3 class="py-2"> <%=  @offer.price %>,00R$</h3>
   <p> <%=  @offer.description %></p>
 
