@@ -4,7 +4,26 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @offers = Offer.all
+    # @offers = Offer.all
+    if params[:query].present?
+      sql_query = " \
+        offers.name ILIKE :query \
+        OR offers.description ILIKE :query \
+        OR categories.name ILIKE :query \
+      "
+      @offers = Offer.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+
+      # sql_query = " \
+      #   offers.name @@ :query \
+      #   OR offers.description @@ :query \
+      #   OR categories.name @@ :query \
+      # "
+      # @offers = Offer.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @offers = Offer.all
+    end
+
+
   end
 
   def new
