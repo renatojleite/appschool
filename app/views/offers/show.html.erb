@@ -10,7 +10,7 @@
   <%= image_tag('book1.jpg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
   <%= image_tag('book2.jpg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
   <%= image_tag('book1.jpg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
-  <h3 class="py-2"> <%=  @offer.price %>,00R$</h3>
+  <h3 class="py-2"> R$ <%=  @offer.price %></h3>
   <p> <%=  @offer.description %></p>
 
   <% if @offer.deals.where(user: current_user).count.positive? %>
