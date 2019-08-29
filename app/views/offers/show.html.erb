@@ -7,9 +7,7 @@
 <div class="container my-5">
 
   <h1><%= @offer.name %></h1>
-  <%= image_tag('book1.jpg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
-  <%= image_tag('book2.jpg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
-  <%= image_tag('book1.jpg', class: 'card-img-top mx-1', style: 'width: 18rem; border-radius: 3px;') %>
+  <%= cl_image_tag(@offer.photo, width: 280, height: 220, crop: :fill) %>
   <h3 class="py-2"> R$ <%=  @offer.price %></h3>
   <p> <%=  @offer.description %></p>
 
