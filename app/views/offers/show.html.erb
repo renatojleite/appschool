@@ -4,26 +4,69 @@
   </div>
 </div>
 
-<div class="container my-5">
-
-  <h1><%= @offer.name %></h1>
-  <%= cl_image_tag(@offer.photo, width: 280, height: 220, crop: :fill) %>
-  <h3 class="py-2"> R$ <%=  @offer.price %></h3>
-  <p> <%=  @offer.description %></p>
-
-  <% if @offer.deals.where(user: current_user).count.positive? %>
-    <h3 class="text-success">Vendido!</h3>
-  <% else %>
-    <% if user_signed_in? %>
-        <%= simple_form_for [ @offer, @deal ]  do |f| %>
-          <%= f.submit "Comprar", class: "btn btn-primary btn-lg my-3" %>
-    <% end %>
-    <% if @offer.user == current_user %>
-      <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
-      <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
-    <% end %>
-    <% end %>
-  <% end %>
-</div>
 
 
+  <main class="pt-4">
+
+    <div class="container dark-grey-text mt-5">
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-md-6 my-4">
+          <h1><%= @offer.name %></h1>
+          <div class="my-5">
+            <%= cl_image_tag(@offer.photo, width: 400, height: 220, crop: :fill) %>
+          </div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge blue mr-1">New</span>
+              </a>
+            </div>
+
+            <p class="lead">
+              <span class="mr-1">
+                <del>$<%= 20 + @offer.price %></del>
+              </span>
+              <span>$<%=  @offer.price %></span>
+            </p>
+
+            <p class="lead font-weight-bold">Description</p>
+
+            <p><%=  @offer.description %></p>
+
+            <form class="d-flex justify-content-left">
+              <!-- Default input -->
+             <% if @offer.deals.where(user: current_user).count.positive? %>
+                <h3 class="text-success">Vendido!</h3>
+              <% else %>
+                <% if user_signed_in? %>
+                    <%= simple_form_for [ @offer, @deal ]  do |f| %>
+                      <%= f.submit "Comprar", class: "btn btn-primary btn-lg my-3" %>
+                <% end %>
+                <% if @offer.user == current_user %>
+                  <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
+                  <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
+                <% end %>
+                <% end %>
+              <% end %>
+
+
+            </form>
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
