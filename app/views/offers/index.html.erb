@@ -3,7 +3,9 @@
 
     <div class="home-banner">
       <h1>App School</h1>
+      <div class="typed-home">
       <h2><span id='typed'></span></h2>
+      </div>
     </div>
 
     <!-- <div>
@@ -14,19 +16,30 @@
         <%= link_to 'Cadastrar', new_offer_path, class: "btn btn-primary btn-lg mx-4 btn-home" %>
         <%= link_to 'Explorar', '#', class: "btn btn-success btn-lg btn-home" %>
       </span>
-    </div>
 
-      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <div class="search-form-control form-group">
-          <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Escola Santa Cruz" />
-          <button name="button" type="submit" class="btn btn-flat">
-            <i class="fas fa-search"></i> Buscar
-          </button>
-        </div>
-      </form>
+
+  </div>
+
+
+  <div class="search-home">
+    <%= form_tag offers_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search-input",
+        placeholder: "Encontre seu produto"
+      %>
+      <%= submit_tag "Buscar", class: "btn btn-primary search-input-submit" %>
+    <% end %>
+  </div>
+</div>
+
+
+<div>
+  <div>
 
   </div>
 </div>
+
 
 <div class="container text-center my-5 ">
   <h3>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h3>
@@ -38,22 +51,27 @@
 
 <%###= cl_image_tag("https://res.cloudinary.com/renatojleite/image/upload/v1567009615/wtqg9yu6ick4e3yqcxag.jpg",
       width: 400, height: 300, crop: :fill) %>
+  <% if params[:query].present?  %>
+    <div class="text-center">
+      <h3> Sua busca: <b>"<%= params[:query] %>"</b></h3>
+    </div>
+  <% end %>
 
 <div class="container cards my-4">
- <% @offers.each do |offer| %>
-  <div>
-      <div>
+  <% @offers.each do |offer| %>
+    <%= link_to offer, style:"text-decoration: none" do %>
+      <div class="card-trip-general">
         <div class="card-trip">
           <%= cl_image_tag(offer.photo, width: 500, height: 500, crop: :fill) %>
           <div class="card-trip-infos">
             <div>
-              <h2> <%= link_to offer.name, offer_path(offer) %> </h2>
+              <h2> <%= offer.name %> </h2>
             </div>
             <h2 class="card-trip-pricing">R$ <%= offer.price %></h2>
           </div>
         </div>
       </div>
-  </div>
-<%end %>
+    <% end %>
+  <%end %>
 </div>
 
