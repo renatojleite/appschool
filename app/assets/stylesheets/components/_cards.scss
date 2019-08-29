@@ -106,5 +106,12 @@ color: white;
 }
 
 .card-trip img:hover {
-  opacity: 0.5;
+  opacity: 0.7;
+  transition-duration: 1s;
+}
+
+.card-trip-general:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+  transition-duration: 0.2s;
+
 }
