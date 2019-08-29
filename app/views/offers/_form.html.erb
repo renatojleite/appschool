@@ -10,6 +10,10 @@
           <div class="col-6 col-sm-4">
             <%= f.association :category %>
           </div>
+          <div class="col-6 col-sm-4">
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+          </div>
         </div>
         <%= f.input :description %>
         <%= f.input :price %>
