@@ -1,12 +1,27 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-    <h1> <%= current_user.email %></h1>
+    <h1> <% current_user.email %></h1>
 
   </div>
 </div>
 
+<div class="container cards my-4">
+  <% current_user.offers.each do |offer| %>
+  <div>
+      <div>
+        <div class="card-trip">
+          <img src="https://images.unsplash.com/photo-1565022536102-f7645c84354a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80" />
+          <div class="card-trip-infos">
+            <div>
+              <h2> <%= offer.name %> </h2>
+            </div>
+            <h2 class="card-trip-pricing">R$ <%= offer.price %></h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+      </div>
+  </div>
+<%end %>
+</div>
 
- <% current_user.offers.each do |offer| %>
-  <h2> <%= offer.name %> </h2>
-  <% end  %>
 

@@ -64,12 +64,6 @@ color: white;
   }
 }
 
-
-
-
-
-
-
 .card-trip {
   overflow: hidden;
   background: white;
@@ -101,6 +95,7 @@ color: white;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+
 }
 
 .card-trip-infos .card-trip-user {
@@ -108,4 +103,8 @@ color: white;
   left: 18px;
   top: -180px;
   width: 40px;
+}
+
+.card-trip img:hover {
+  opacity: 0.5;
 }
