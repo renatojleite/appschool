@@ -2,7 +2,7 @@ Offer.destroy_all
 User.destroy_all
 Category.destroy_all
 
-categories = ["Primeira Série", "Segunda Série", "Terceira Série", "Quarta Série", "Quinta Série", "Sexta Série", "Camiseta", "Shorts", "Moletom"]
+categories = ["1º Série", "2º Série", "3º Série", "4º Série", "5º Série", "Agasalhos", "Camisetas", "Bermudas", "Calças"]
 categories.each do |categorie|
   Category.create(name: categorie)
 end
