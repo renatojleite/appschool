@@ -32,13 +32,13 @@
   <div>
       <div>
         <div class="card-trip">
-          <img src="https://images.unsplash.com/photo-1565022536102-f7645c84354a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80" />
+          <%= cl_image_tag(offer.photo, width: 500, height: 500, crop: :fill) %>
           <div class="card-trip-infos">
             <div>
               <h2> <%= offer.name %> </h2>
             </div>
             <h2 class="card-trip-pricing">R$ <%= offer.price %></h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
           </div>
         </div>
       </div>
