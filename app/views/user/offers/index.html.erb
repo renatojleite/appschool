@@ -5,20 +5,20 @@
 
   <div class="container text-center my-3">
     <a class="image-link"  href="" >
-      <img src="<%= image_path("terra.jpg")%>">
+      <img src="<%= image_path("foto-usuario.png")%>">
      <%#= cl_image_tag current_user.photo %>
     </a>
     <h3> <strong>Produtos Cadastrados</</strong> </h3>
 
 
     <div class="cards-prod-vend">
-      <div class="card-category-prod my-3">
+      <div class="card-category-prod-user my-3">
           <div class="card-trip-infos my-1">
           <p>Produtos</p> <%= current_user.offers.count %>
           </div>
       </div>
 
-      <div class="card-category-prod my-3">
+      <div class="card-category-prod-user my-3">
         <div class="card-trip-infos my-1">
           <p>Potencial de Vendas</p>
            R$  <%= current_user.offers.pluck(:price).sum %>
