@@ -1,9 +1,31 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);"> -->
   <div class="container">
     <h1> <% current_user.email %></h1>
-
   </div>
-</div>
+
+  <div class="container text-center my-3">
+    <a class="image-link"  href="" >
+      <img src="<%= image_path("terra.jpg")%>">
+     <%#= cl_image_tag current_user.photo %>
+    </a>
+    <h3> <strong>Produtos Cadastrados</</strong> </h3>
+
+
+    <div class="cards-prod-vend">
+      <div class="card-category-prod my-3">
+          <div class="card-trip-infos my-1">
+          <p>Produtos</p> <%= current_user.offers.count %>
+          </div>
+      </div>
+
+      <div class="card-category-prod my-3">
+        <div class="card-trip-infos my-1">
+          <p>Potencial de Vendas</p>
+           R$  <%= current_user.offers.pluck(:price).sum %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div class="container cards my-4">
   <% current_user.offers.each do |offer| %>

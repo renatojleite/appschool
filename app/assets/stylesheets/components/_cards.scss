@@ -105,6 +105,14 @@ color: white;
   width: 40px;
 }
 
+.card-category-prod  {
+  color: black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: black;
+
+
+}
+
 .card-trip img:hover {
   opacity: 0.7;
   transition-duration: 1s;
@@ -116,6 +124,14 @@ color: white;
 
 }
 
+// card dos prods cadastrados do usuario
+.cards-prod-vend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 42px;
+  margin-inline-end: 15%;
+  margin-inline-start: 15%;
+}
 
 // card do menu HOME
 
@@ -155,6 +171,3 @@ color: white;
 .card-menu-user {
   position: absolute;
 }
-
-
-
