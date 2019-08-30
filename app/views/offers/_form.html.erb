@@ -17,7 +17,7 @@
         </div>
         <%= f.input :description %>
         <%= f.input :price %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: { class: 'stars' } %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Estado de conservação", input_html: { class: 'stars' } %>
         <%= f.button :submit, class: 'btn btn-primary' %>
         <%#= $('#review_rating') %>
       <% end %>
