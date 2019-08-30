@@ -39,7 +39,7 @@ def create
   private
 
   def offer_params
-    params.require(:offer).permit(:name, :description, :price, :category_id)
+    params.require(:offer).permit(:name, :description, :price, :category_id, :photo)
   end
 
 end

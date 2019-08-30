@@ -124,6 +124,7 @@ color: white;
 
 }
 
+// card dos prods cadastrados do usuario
 .cards-prod-vend {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -132,3 +133,41 @@ color: white;
   margin-inline-start: 15%;
 }
 
+// card do menu HOME
+
+.card-menu {
+  overflow: hidden;
+  background: white;
+}
+
+.card-menu > img {
+  height: 200px;
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.card-menu h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-menu p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-menu .card-menu-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+
+}
+
+.card-menu-user {
+  position: absolute;
+}

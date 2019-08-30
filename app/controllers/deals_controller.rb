@@ -6,6 +6,7 @@ class DealsController < ApplicationController
     @deal.user = current_user
     @deal.offer = @offer
     if @deal.save
+      flash[:notice] = "Compra efetuada"
       redirect_to offer_path(@offer)
     else
       render 'offers/show'

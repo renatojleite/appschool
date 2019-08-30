@@ -4,10 +4,11 @@ ruby '2.6.3'
 gem 'pg_search', '~> 2.3.0'
 gem 'cloudinary', '~> 1.9.1'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'carrierwave', '~> 1.2'
 
 gem 'devise'
 gem 'bootsnap', require: false
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
