@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :deals, only: :create
   end
 
+  resources :reviews, only: [:new, :create]
+
   namespace :user do
     resources :offers
   end
