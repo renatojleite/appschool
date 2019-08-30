@@ -5,13 +5,13 @@ class OffersController < ApplicationController
 
   def index
     # @offers = Offer.all
-    if params[:query].present?
+    if params[:query].present? || params[:category].present?
       sql_query = " \
         offers.name ILIKE :query \
         OR offers.description ILIKE :query \
         OR categories.name ILIKE :query \
       "
-      @offers = Offer.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+      @offers = Offer.joins(:category).where(sql_query, query: "%#{params[:query] || params[:category]}%")
 
       # sql_query = " \
       #   offers.name @@ :query \

@@ -43,16 +43,16 @@
 
                 <ul class="list-inline tabs-underlined">
                   <li>
-                  <a href="#" class="tab-underlined active">Agasalhos</a>
+                  <%= link_to 'Agasalhos', root_path(category: 'agasalho'), class: "tab-underlined" %>
                   </li>
                   <li>
-                  <a href="#" class="tab-underlined">Camisetas</a>
+                  <%= link_to 'Camisetas', root_path(category: 'camiseta'), class: "tab-underlined" %>
                   </li>
                   <li>
-                  <a href="#" class="tab-underlined">Bermudas</a>
+                  <%= link_to 'Bermudas', root_path(category: 'bermuda'), class: "tab-underlined" %>
                   </li>
                   <li>
-                  <a href="#" class="tab-underlined">Calças</a>
+                  <%= link_to 'Calças', root_path(category: 'calça'), class: "tab-underlined" %>
                   </li>
                 </ul>
 
@@ -72,19 +72,19 @@
           <div>
             <ul class="list-inline tabs-underlined">
               <li>
-              <a href="#" class="tab-underlined active">1º Série</a>
+              <%= link_to '1º Série', root_path(category: '1º Série'), class: "tab-underlined" %>
               </li>
               <li>
-              <a href="#" class="tab-underlined">2º Série</a>
+              <%= link_to '2º Série', root_path(category: '2º Série'), class: "tab-underlined" %>
               </li>
               <li>
-              <a href="#" class="tab-underlined">3º Série</a>
+              <%= link_to '3º Série', root_path(category: '3º Série'), class: "tab-underlined" %>
               </li>
               <li>
-              <a href="#" class="tab-underlined">4º Série</a>
+              <%= link_to '4º Série', root_path(category: '4º Série'), class: "tab-underlined" %>
               </li>
               <li>
-              <a href="#" class="tab-underlined">5º Série</a>
+              <%= link_to '5º Série', root_path(category: '5º Série'), class: "tab-underlined" %>
               </li>
             </ul>
           </div>
@@ -105,11 +105,25 @@
 
 <%###= cl_image_tag("https://res.cloudinary.com/renatojleite/image/upload/v1567009615/wtqg9yu6ick4e3yqcxag.jpg",
       width: 400, height: 300, crop: :fill) %>
-  <% if params[:query].present?  %>
-    <div class="text-center">
-      <h3> Sua busca: <b>"<%= params[:query] %>"</b></h3>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="row d-flex justify-content-center my-5">
+  <div class="category-title-div">
+    <% if params[:category].present?  %>
+      <div class="text-center category-title">
+        <h3><b><%= params[:category] %></b></h3>
+      </div>
+    <% end %>
+
+    <% if params[:query].present?  %>
+      <div class="text-center category-title-search">
+        <h3> Sua busca: <b>"<%= params[:query] %>"</b></h3>
+      </div>
+    <% end %>
+  </div>
+  </div>
+  </div>
+</div>
+
 
 <a name = "value"></a>
 <div class="container cards my-4">
@@ -120,7 +134,7 @@
           <%= cl_image_tag(offer.photo, width: 500, height: 500, crop: :fill) %>
           <div class="card-trip-infos">
             <div>
-              <h2> <%= offer.name %> </h2>
+                <h2> <%= offer.name %> </h2>
             </div>
             <h2 class="card-trip-pricing">R$ <%= offer.price %></h2>
           </div>
