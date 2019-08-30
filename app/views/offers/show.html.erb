@@ -8,7 +8,6 @@
       <h3 class="py-2"> R$ <%=  @offer.price %></h3>
       <h4> <%= @offer.category.name %> </h4>
       <p> <%=  @offer.description %></p>
-
       <% if @offer.deals.count.positive? %>
         <h3 class="text-success">Vendido!</h3>
       <% elsif @offer.user != current_user %>
@@ -20,6 +19,14 @@
         <%= link_to "Editar produto", edit_user_offer_path, class: "btn btn-primary btn-lg"%>
         <%= link_to "Remover", offer_path(@offer), method: "delete", data: { confirm: "Confirmar a exclusão?" }, class: "btn btn-danger btn-lg" %>
       <% end %>
+      <div class="ratings mt-3">
+               <% (@offer.rating).times do %>
+                 <i class="fas fa-star"></i>
+               <% end %>
+               <% (5 - @offer.rating).times do %>
+                 <i class="far fa-star"></i>
+               <% end %>
+             </div>
     </div>
   </div>
 </div>
