@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_201618) do
+ActiveRecord::Schema.define(version: 2019_08_30_153524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2019_08_29_201618) do
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,4 +69,5 @@ ActiveRecord::Schema.define(version: 2019_08_29_201618) do
   add_foreign_key "deals", "users"
   add_foreign_key "offers", "categories"
   add_foreign_key "offers", "users"
+  add_foreign_key "reviews", "users"
 end
