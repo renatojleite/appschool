@@ -14,14 +14,14 @@
     <div class="cards-prod-vend">
       <div class="card-category-prod-user my-3">
           <div class="card-trip-infos my-1">
-          <p>Produtos</p> <%= current_user.offers.count %>
+          <p>Produtos</p> <p style="font-size: 30px"><%= current_user.offers.count %></p>
           </div>
       </div>
 
       <div class="card-category-prod-user my-3">
         <div class="card-trip-infos my-1">
           <p>Potencial de Vendas</p>
-           R$  <%= current_user.offers.pluck(:price).sum %>
+           <p style="font-size: 30px"> R$  <%= current_user.offers.pluck(:price).sum %></p>
         </div>
       </div>
     </div>
@@ -29,6 +29,7 @@
 
 <div class="container cards my-4">
   <% current_user.offers.each do |offer| %>
+  <%= link_to offer, style:"text-decoration: none" do %>
   <div>
       <div>
         <div class="card-trip">
@@ -43,6 +44,7 @@
         </div>
       </div>
   </div>
+  <% end %>
 <%end %>
 </div>
 
